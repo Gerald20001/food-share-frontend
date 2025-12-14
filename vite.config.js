@@ -11,6 +11,28 @@ export default defineConfig({
   },
   optimizeDeps: {
     include: ['leaflet']
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    sourcemap: false,
+    minify: 'terser',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor': ['vue', 'vue-router', 'pinia'],
+          'leaflet': ['leaflet', 'leaflet-routing-machine']
+        }
+      }
+    }
+  },
+  server: {
+    port: 3000,
+    host: true
+  },
+  preview: {
+    port: 3000,
+    host: true
   }
 })
 

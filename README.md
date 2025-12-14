@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Food Share - Full Stack Application
 
 A platform for sharing surplus food between organizations and volunteers, built with Vue.js frontend and Node.js/Express/PostgreSQL backend.
@@ -215,3 +216,6 @@ VITE_API_URL=http://localhost:3000/api
 ## License
 
 MIT
+=======
+# food-share-frontend
+>>>>>>> 2dfc0327aeb498a4a2085fb7c5f9f319cafc3045
