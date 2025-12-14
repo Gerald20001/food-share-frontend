@@ -1,0 +1,51 @@
+services:
+  - type: web
+    name: food-share-backend
+    env: node
+    plan: free
+    buildCommand: cd backend && npm install
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: FRONTEND_URL
+        sync: false  # Встановіть вручну після деплою frontend
+      - key: DB_HOST
+        fromDatabase:
+          name: food-share-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: food-share-db
+          property: port
+      - key: DB_NAME
+        fromDatabase:
+          name: food-share-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: food-share-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: food-share-db
+          property: password
+      - key: JWT_SECRET
+        generateValue: true
+      - key: EMAIL_HOST
+        sync: false  # Встановіть вручну
+      - key: EMAIL_PORT
+        value: 587
+      - key: EMAIL_USER
+        sync: false  # Встановіть вручну
+      - key: EMAIL_PASS
+        sync: false  # Встановіть вручну
+
+databases:
+  - name: food-share-db
+    plan: free
+    databaseName: foodshare
+    user: foodshare_user
+
